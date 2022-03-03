@@ -15,8 +15,9 @@ jobs:
 
     # Change working directory to bootstrap folder for setup process
     - name: Change working directory to bootstrap
-      run: pwd
-      run: terraform -chdir=/0-run-github-action-for-aws-setup-once apply
+      run: |
+        pwd
+        terraform -chdir=/0-run-github-action-for-aws-setup-once apply
 
     - name: Install Terraform
       env:
