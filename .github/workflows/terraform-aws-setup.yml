@@ -1,0 +1,57 @@
+name: Terraform AWS Setup
+# https://medium.com/swlh/lets-do-devops-github-actions-terraform-aws-77ef6078e4f2
+# Thanks to KyMidd for the great walkthroughs
+# This Github action script provisions the s3 bucket to store the state file
+# and the dynamodb table to store the lock status, so they can be use in any 
+# further terraform IaC provisioning using Github Actions
+
+on: [workflow_dispatch]
+
+jobs:
+  terraform_aws_setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    # Change working directory to bootstrap folder for setup process
+    - name: Change working directory to bootstrap
+      run: terraform -chdir=/0-run-github-action-for-aws-setup-once apply
+
+    - name: Install Terraform
+      env:
+        TERRAFORM_VERSION: "0.12.15"
+      run: |
+        tf_version=$TERRAFORM_VERSION
+        wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
+        unzip terraform_"$tf_version"_linux_amd64.zip
+        sudo mv terraform /usr/local/bin/
+
+    - name: Verify Terraform version
+      run: terraform --version
+
+    - name: Terraform init
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: terraform init -input=false
+
+    # Validate syntactically and internally consistent
+    - name: Terraform validation
+      run: terraform validate
+
+    # Create the S3 bucket and dynamo db without calling the 
+    # commented out state file parts of main.tf
+    - name: Terraform apply
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: terraform apply -auto-approve -input=false
+
+    # push local .tfstate to s3 statefile
+    - name: Push TF state file to S3
+      run: |
+        rm /0-run-github-action-for-aws-setup-once/main.tf
+        mv /0-run-github-action-for-aws-setup-once/main-with-remote-backend.tf /0-run-github-action-for-aws-setup-once/main.tf
+        terraform init -input=false
+
+

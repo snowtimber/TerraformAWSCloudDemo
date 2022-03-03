@@ -26,9 +26,15 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform init -input=false
 
+    # Format your configuration. Terraform will print out the names of the files it modified
+    - name: Terraform format
+      run: terraform fmt
+
+    # Validate syntactically and internally consistent
     - name: Terraform validation
       run: terraform validate
 
+    # Deploy
     - name: Terraform apply
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
