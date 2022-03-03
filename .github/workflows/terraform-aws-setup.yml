@@ -25,7 +25,7 @@ jobs:
 
     # Change working directory to bootstrap folder for setup process
     - name: Change working directory to bootstrap
-      run: cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once apply
+      run: cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once
 
     - name: Verify Terraform version
       run: terraform --version
