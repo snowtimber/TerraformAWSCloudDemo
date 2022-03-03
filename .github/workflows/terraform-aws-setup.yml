@@ -23,6 +23,10 @@ jobs:
     #    unzip terraform_"$tf_version"_linux_amd64.zip
     #    sudo mv terraform /usr/local/bin/
 
+    # Change working directory to bootstrap folder for setup process
+    - name: Change working directory to bootstrap
+      run: cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once apply
+
     - name: Verify Terraform version
       run: terraform --version
 
@@ -33,14 +37,8 @@ jobs:
       run: terraform init -input=false
 
     # Change working directory to bootstrap folder for setup process
-    - name: Change working directory to bootstrap
-      run: terraform -chdir=/home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once apply
-
-    - name: Terraform init 2
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform init -input=false
+    #- name: Change working directory to bootstrap
+    #  run: terraform -chdir=/home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once apply
 
     # Validate syntactically and internally consistent
     - name: Terraform validation
