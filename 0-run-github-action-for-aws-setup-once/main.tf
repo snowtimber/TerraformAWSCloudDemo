@@ -22,32 +22,32 @@ provider "aws" {
 
 variable "name_of_s3_bucket" {
   type    = string
-  default = ["github-actions-terraform-tfstate"]
+  default = "github-actions-terraform-tfstate"
 }
 
 variable "dynamo_db_table_name" {
   type    = string
-  default = ["aws-terraform-lock"]
+  default = "aws-terraform-lock"
 }
 
 variable "iam_user_name" {
   type    = string
-  default = ["GitHubActionsIamUser"]
+  default = "GitHubActionsIamUser"
 }
 
 variable "ado_iam_role_name" {
   type    = string
-  default = ["GitHubActionsIamRole"]
+  default = "GitHubActionsIamRole"
 }
 
 variable "aws_iam_policy_permits_name" {
   type    = string
-  default = ["GitHubActionsIamPolicyPermits"]
+  default = "GitHubActionsIamPolicyPermits"
 }
 
 variable "aws_iam_policy_assume_name" {
   type    = string
-  default = ["GitHubActionsIamPolicyAssume"]
+  default = "GitHubActionsIamPolicyAssume"
 }
 
 ##
