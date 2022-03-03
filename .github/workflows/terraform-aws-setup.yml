@@ -17,7 +17,7 @@ jobs:
     - name: Change working directory to bootstrap
       run: |
         pwd
-        terraform -chdir=/0-run-github-action-for-aws-setup-once apply
+        terraform -chdir=/home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once apply
 
     - name: Install Terraform
       env:
@@ -52,8 +52,8 @@ jobs:
     # push local .tfstate to s3 statefile
     - name: Push TF state file to S3
       run: |
-        rm /0-run-github-action-for-aws-setup-once/main.tf
-        mv /0-run-github-action-for-aws-setup-once/main-with-remote-backend.tf /0-run-github-action-for-aws-setup-once/main.tf
+        rm /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once/main.tf
+        mv /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once/main-with-remote-backend.tf /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/0-run-github-action-for-aws-setup-once/main.tf
         terraform init -input=false
 
 
