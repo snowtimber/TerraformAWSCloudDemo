@@ -13,7 +13,7 @@ terraform {
 # Download any stable version in AWS provider of 2.36.0 or higher in 2.36 train
 provider "aws" {
   region  = "us-east-1"
-  version = "~> 2.36.0"
+  # version = "~> 2.36.0"
 }
 
 ##
@@ -22,7 +22,7 @@ provider "aws" {
 
 variable "name_of_s3_bucket" {
   type    = string
-  default = "github-actions-terraform-tfstate-12345"
+  default = "github-actions-terraform-tfstate-2345678"
 }
 
 variable "dynamo_db_table_name" {
