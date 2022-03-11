@@ -9,7 +9,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      aws = "~> 3.74"
     }
   }
   # Below items to be commented out during seed initialization
@@ -69,7 +69,7 @@ variable "aws_iam_policy_assume_name" {
 ##
 
 # Build an S3 bucket to store TF state
-resource "aws_s3_bucket_*" "state_bucket" {
+resource "aws_s3_bucket" "state_bucket" {
   bucket = var.name_of_s3_bucket
 
   # Tells AWS to encrypt the S3 bucket at rest by default
