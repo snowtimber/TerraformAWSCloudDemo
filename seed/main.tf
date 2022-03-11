@@ -30,7 +30,7 @@ provider "aws" {
 
 variable "name_of_s3_bucket" {
   type    = string
-  default = "github-actions-terraform-tfstate-2345678"
+  default = "github-actions-terraform-tfstate"
 }
 
 variable "dynamo_db_table_name" {
