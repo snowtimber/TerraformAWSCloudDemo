@@ -74,7 +74,7 @@ jobs:
     - name: Push TF state file to S3
       run: |
         rm /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
-        mv /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main-with-remote-backend.tf /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
+        mv /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main-replace/main-with-remote-backend.tf /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
         pwd
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
         echo "The working directory is:"
