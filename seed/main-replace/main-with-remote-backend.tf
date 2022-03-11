@@ -2,7 +2,7 @@
 terraform {
   # required_version = ">=0.12.13"
   backend "s3" {
-    bucket         = "github-actions-terraform-tfstate"
+    bucket         = "github-actions-terraform-tfstate-x123"
     key            = "terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "aws-terraform-lock"
@@ -22,7 +22,7 @@ provider "aws" {
 # you will need a globally unique s3 bucket name
 module "seed" {
   source                      = "../modules/seed"
-  name_of_s3_bucket           = "github-actions-terraform-tfstate"
+  name_of_s3_bucket           = "github-actions-terraform-tfstate-x123"
   dynamo_db_table_name        = "aws-terraform-lock"
   iam_user_name               = "GitHubActionsIamUser"
   ado_iam_role_name           = "GitHubActionsIamRole"
