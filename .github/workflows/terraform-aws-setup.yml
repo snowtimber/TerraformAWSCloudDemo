@@ -67,7 +67,7 @@ jobs:
         terraform apply -auto-approve -input=false
 
     # push local .tfstate to s3 statefile
-    - name: Push TF state file to S3
+    - name: Push TF state file to S3 and TF apply
       env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -80,5 +80,7 @@ jobs:
         echo "The working directory is:"
         pwd
         terraform init -force-copy -input=false
+        terraform validate
+        terraform apply -auto-approve -input=false
 
 

@@ -22,7 +22,6 @@ provider "aws" {
 #Below are sample resources to have terraform provision
 ##
 
-/*
 # Call the seed_module to build our ADO seed info
 module "seed" {
   source                      = "./modules/seed"
@@ -33,7 +32,6 @@ module "seed" {
   aws_iam_policy_permits_name = "GitHubActionsIamPolicyPermits"
   aws_iam_policy_assume_name  = "GitHubActionsIamPolicyAssume"
 }
-*/
 
 # Build the VPC
 resource "aws_vpc" "vpc" {
