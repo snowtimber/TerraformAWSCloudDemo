@@ -1,6 +1,6 @@
 # TerraformAWSCloudSeed
 
-This repo can create a "seed" or "bootstrapped" AWS Terraform Environement:
+This repo can create a "seed" or "bootstrapped" AWS Terraform Environment:
 
 Terraform requires a state file (to store the state) and a lock file to store the lock status.  To have a completely cloud based environment, these need to be stored with a cloud provider, in our case within an AWS s3 bucket for the state file and a dynamo db table for the lock status.
 
@@ -75,4 +75,4 @@ module "seed" {
 
 ## Future
 -add Terraform Destroy commands for any orphan resources created
--add unit tests to Github Actions CI/CD for a more versatile seed
+-add unit tests to Github Actions CI/CD Terraform Apply for a more versatile seed
