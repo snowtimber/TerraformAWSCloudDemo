@@ -21,7 +21,7 @@ provider "aws" {
 # you will need a globally unique s3 bucket name
 module "bootstrap" {
   source                      = "./modules/bootstrap"
-  name_of_s3_bucket           = "github-actions-terraform-tfstate"
+  name_of_s3_bucket           = "github-actions-terraform-tfstate-2345678"
   dynamo_db_table_name        = "aws-terraform-lock"
   iam_user_name               = "GitHubActionsIamUser"
   ado_iam_role_name           = "GitHubActionsIamRole"
