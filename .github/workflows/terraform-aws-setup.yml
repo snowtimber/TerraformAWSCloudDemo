@@ -39,6 +39,9 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         pwd
+        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
+        echo "The working directory is:"
+        pwd
         terraform init -input=false
 
     # Change working directory to bootstrap folder for setup process
@@ -47,7 +50,12 @@ jobs:
 
     # Validate syntactically and internally consistent
     - name: Terraform validation
-      run: terraform validate
+      run: |
+       pwd
+        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
+        echo "The working directory is:"
+        pwd
+        terraform validate
 
     # Create the S3 bucket and dynamo db without calling the 
     # commented out state file parts of main.tf
@@ -55,13 +63,22 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve -input=false
+      run: |
+        pwd
+        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
+        echo "The working directory is:"
+        pwd
+        terraform apply -auto-approve -input=false
 
     # push local .tfstate to s3 statefile
     - name: Push TF state file to S3
       run: |
         rm /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
         mv /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main-with-remote-backend.tf /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
+        pwd
+        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
+        echo "The working directory is:"
+        pwd
         terraform init -input=false
 
 
