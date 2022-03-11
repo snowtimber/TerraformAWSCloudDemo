@@ -12,9 +12,11 @@ Special thanks to KyMidd for the great walkthroughs below.
 This repo simply combines these 2 articles by KyMidd into 1 simple github action workflow to seed any AWS Terraform project:
 
 An Intro to Bootstrapping AWS to Your Terraform CI/CD:
+
 https://medium.com/swlh/lets-do-devops-bootstrap-aws-to-your-terraform-ci-cd-azure-devops-github-actions-etc-b3cc5a636dce
 
 An Intro to GitHub Actions + Terraform + AWS:
+
 https://medium.com/@kymidd/lets-do-devops-github-actions-terraform-aws-77ef6078e4f2
 
 # How it Works
@@ -44,6 +46,7 @@ AWS_SECRET_ACCESS_KEY
 ```
 
 See KyMidd's walkthrough for step by step instructions:
+
 https://medium.com/swlh/lets-do-devops-bootstrap-aws-to-your-terraform-ci-cd-azure-devops-github-actions-etc-b3cc5a636dce
 
 
