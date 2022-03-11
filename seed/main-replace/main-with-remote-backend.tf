@@ -10,10 +10,11 @@ terraform {
   }
 }
 
-# Download any stable version in AWS provider of 2.36.0 or higher in 2.36 train
+# Download any stable version in AWS provider
 provider "aws" {
   region  = "us-east-1"
-  version = "~> 2.36.0"
+  #version 3.74 to address issue https://github.com/hashicorp/terraform-provider-aws/issues/23106
+  version = "~> 3.74"
 }
 
 # Call the "bootstrap" "module to build our AWS seed info
