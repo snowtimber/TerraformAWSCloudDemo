@@ -79,6 +79,6 @@ jobs:
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
         echo "The working directory is:"
         pwd
-        terraform init -auto-approve -input=false
+        terraform init -force-copy -input=false
 
 
