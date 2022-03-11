@@ -1,5 +1,12 @@
+# Initialise Variables and AWS Resources for future terraform use.
+# This terraform file to be run with definitions within terraform block commented out
+# so that these resources are provisioned and does not throw an error when looking for them.
+
+
 # Require TF version to be same as or greater than 0.12.13
+
 terraform {
+  # Below items to be commented out during seed initialization
   # required_version = ">=0.12.13"
   #backend "s3" {
   #  bucket         = "your_globally_unique_bucket_name"
