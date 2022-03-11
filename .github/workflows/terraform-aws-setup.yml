@@ -27,7 +27,7 @@ jobs:
     - name: Change working directory to seed
       run: |
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
-        print "working directory is:"
+        echo "The working directory is:"
         pwd
 
     - name: Verify Terraform version
