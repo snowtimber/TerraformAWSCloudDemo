@@ -25,11 +25,9 @@ jobs:
 
     # Change working directory to bootstrap folder for setup process
     - name: Change working directory to seed
-      run: cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
-
-    # verify working directory
-    - name: Verify working directory is seed
-      run: pwd
+      run: |
+        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
+        pwd
 
     - name: Verify Terraform version
       run: terraform --version
