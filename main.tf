@@ -14,6 +14,8 @@ terraform {
 provider "aws" {
   region  = "us-east-1"
   # version = "~> 2.36.0"
+  # version 3.74 to address issue https://github.com/hashicorp/terraform-provider-aws/issues/23106
+  version = "~> 3.74"
 }
 
 ##
