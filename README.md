@@ -17,14 +17,7 @@ https://medium.com/swlh/lets-do-devops-bootstrap-aws-to-your-terraform-ci-cd-azu
 An Intro to GitHub Actions + Terraform + AWS:
 https://medium.com/@kymidd/lets-do-devops-github-actions-terraform-aws-77ef6078e4f2
 
-
-# GitHub Actions Terraform Deployment Example
-The purpose of this repository is to illustrate a GitHub Actions pipeline deploying a SAM template.
-
-In this particular example we are deploying Amazon API Gateway, AWS StateMachine, AWS Lambda Functions, and corresponding IAM Roles.
-
-## How it Works
-# See How to Configure below
+# How it Works
 
 There are 2 workflows `terraform-aws-setup.yml` and 'terraform-cicd-apply.yml'.
 
@@ -41,7 +34,7 @@ on:
 ```
 
 
-## How To Configure
+# How To Configure
 * Fork this repo
 * Within the Repository settings for your fork or repo, create the following `Secrets` to configure the permissions to be used by the GitHub Actions pipeline:
 
