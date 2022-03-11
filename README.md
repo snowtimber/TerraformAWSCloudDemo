@@ -4,7 +4,7 @@ This repo can create a "seed" or "bootstrapped" AWS Terraform Environement:
 
 Terraform requires a state file (to store the state) and a lock file to store the lock status.  To have a completely cloud based environment, these need to be stored with a cloud provider, in our case within an AWS s3 bucket for the state file and a dynamo db table for the lock status.
 
-A key catch-22 is that the s3 bucket and dynamo db needs to pre-exist, in order for Terraform to be able to 'init' against it and later 'apply' any new changes.
+A key catch-22 is that the s3 bucket and dynamo db needs to pre-exist, in order for Terraform to be able to 'init' and later 'apply' any new changes.
 
 This project allows the necessary S3 bucket and Dynamo DB table to be provisioned once initially using github actions 'run workflow' button on the Terraform AWS Setup workflow, and then a user can run any follow up CI/CD within the modules and main.tf file on push to 'main' as they would any regular Terraform development IaC workflow.
 
