@@ -33,7 +33,7 @@ module "seed" {
   aws_iam_policy_assume_name  = "GitHubActionsIamPolicyAssume"
 }
 
-# Additional resources to be provisioned
+# Additional and optional resources to be provisioned
 
 # Build the VPC
 resource "aws_vpc" "vpc" {

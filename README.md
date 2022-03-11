@@ -56,15 +56,8 @@ https://medium.com/swlh/lets-do-devops-bootstrap-aws-to-your-terraform-ci-cd-azu
 
 * Update the the S3 bucket name to a globally unique s3 bucket name of your choice within:
 
-seed/main.tf
-'''
-variable "name_of_s3_bucket" {
-  type    = string
-  default = "github-actions-terraform-tfstate-globaly-unique"
-}
-'''
 
-main.tf and main-with-remote-backend.tf
+main.tf, seed/main.tf and seed/main-replace/main-with-remote-backend.tf
 '''
 terraform {
   backend "s3" {
