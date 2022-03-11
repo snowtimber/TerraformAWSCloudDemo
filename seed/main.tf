@@ -6,6 +6,12 @@
 # Require TF version to be same as or greater than 0.12.13
 
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
   # Below items to be commented out during seed initialization
   # required_version = ">=0.12.13"
   #backend "s3" {
@@ -22,6 +28,7 @@ provider "aws" {
   region  = "us-east-1"
   # version = "~> 2.36.0"
 }
+
 
 ##
 # Define variables for AWS DevOps Seed Module
@@ -62,7 +69,7 @@ variable "aws_iam_policy_assume_name" {
 ##
 
 # Build an S3 bucket to store TF state
-resource "aws_s3_bucket" "state_bucket" {
+resource "aws_s3_bucket_*" "state_bucket" {
   bucket = var.name_of_s3_bucket
 
   # Tells AWS to encrypt the S3 bucket at rest by default
