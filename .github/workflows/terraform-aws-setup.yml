@@ -23,13 +23,6 @@ jobs:
     #    unzip terraform_"$tf_version"_linux_amd64.zip
     #    sudo mv terraform /usr/local/bin/
 
-    # Change working directory to bootstrap folder for setup process
-    - name: Change working directory to seed
-      run: |
-        cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
-        echo "The working directory is:"
-        pwd
-
     - name: Verify Terraform version
       run: terraform --version
 
@@ -38,9 +31,10 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
+        echo "The current working directory is:"
         pwd
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
-        echo "The working directory is:"
+        echo "The working directory is now:"
         pwd
         terraform init -input=false
 
@@ -51,9 +45,10 @@ jobs:
     # Validate syntactically and internally consistent
     - name: Terraform validation
       run: |
-       pwd
+        echo "The current working directory is:"
+        pwd
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
-        echo "The working directory is:"
+        echo "The working directory is now:"
         pwd
         terraform validate
 
@@ -64,6 +59,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
+        echo "The current working directory is:"
         pwd
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
         echo "The working directory is:"
@@ -75,6 +71,7 @@ jobs:
       run: |
         rm /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
         mv /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main-replace/main-with-remote-backend.tf /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed/main.tf
+        echo "The current working directory is:"
         pwd
         cd /home/runner/work/TerraformAWSCloudSeed/TerraformAWSCloudSeed/seed
         echo "The working directory is:"
